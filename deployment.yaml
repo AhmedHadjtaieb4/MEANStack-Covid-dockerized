@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: projet-deployment
+  labels:
+    app: projet
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: projet
+  template:
+    metadata:
+      labels:
+        app: projet
+    spec:
+      containers:
+      - name: angular
+        image: docker0testing/projetfinal_angular
+        ports:
+        - containerPort: 4200
+      - name: expresse 
+        image: docker0testing/projetfinal_express 
+        ports:
+        - containerPort: 3000
+      - name: mongo 
+        image: docker0testing/mongo
+        ports:
+        - containerPort: 27017
+  
+
